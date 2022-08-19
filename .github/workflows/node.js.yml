@@ -28,3 +28,4 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './cinema-tickets-javascript/package-lock.json'
     - run: npm test
+      working-directory: './cinema-tickets-javascript'
