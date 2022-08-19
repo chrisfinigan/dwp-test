@@ -1,0 +1,31 @@
+{
+  "name": "cinema-tickets-javascript",
+  "description": "This is a coding exercise which will allow you to demonstrate how you code and your approach to a given problem.",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=16.15.1"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "mocha --require @babel/register --recursive test --exit"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/register": "^7.18.9",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "jest": "28.1.1",
+    "mocha": "10.0.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/transform-runtime"
+    ]
+  }
+}
