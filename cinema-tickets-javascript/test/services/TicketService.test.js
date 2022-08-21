@@ -1,9 +1,9 @@
 import chai from 'chai';
-import InvalidPurchaseException from '../src/pairtest/lib/InvalidPurchaseException.js';
+import InvalidPurchaseException from '../../src/pairtest/lib/InvalidPurchaseException.js';
 const { expect } = chai;
 
-import TicketTypeRequest from '../src/pairtest/lib/TicketTypeRequest.js';
-import TicketService from '../src/pairtest/TicketService.js';
+import TicketTypeRequest from '../../src/pairtest/lib/TicketTypeRequest.js';
+import TicketService from '../../src/pairtest/services/TicketService.js';
 
 describe('TicketService Errors', () => {
   const ticketService = new TicketService();

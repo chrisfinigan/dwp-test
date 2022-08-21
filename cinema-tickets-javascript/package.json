@@ -7,7 +7,8 @@
   },
   "type": "module",
   "scripts": {
-    "test": "mocha --require @babel/register --recursive test --exit"
+    "test": "mocha --require @babel/register --recursive test --exit",
+    "server": "nodemon src/pairtest/server"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
@@ -27,5 +28,10 @@
     "plugins": [
       "@babel/transform-runtime"
     ]
+  },
+  "dependencies": {
+    "chai-http": "^4.3.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
   }
 }

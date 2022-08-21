@@ -1,7 +1,7 @@
-import TicketTypeRequest from './lib/TicketTypeRequest.js';
-import InvalidPurchaseException from './lib/InvalidPurchaseException.js';
-import SeatReservationService from '../thirdparty/seatbooking/SeatReservationService.js';
-import TicketPaymentService from '../thirdparty/paymentgateway/TicketPaymentService.js';
+import TicketTypeRequest from '../lib/TicketTypeRequest.js';
+import InvalidPurchaseException from '../lib/InvalidPurchaseException.js';
+import SeatReservationService from '../../thirdparty/seatbooking/SeatReservationService.js';
+import TicketPaymentService from '../../thirdparty/paymentgateway/TicketPaymentService.js';
 
 const MAX_TICKETS = 20;
 const MIN_ADULT_TICKETS = 1;
@@ -30,9 +30,9 @@ export default class TicketService {
     }
 
     const { numTickets, numSeats, totalCost } =
-      this.#processTickets(ticketTypeRequests);
+      this.#processTicketRequests(ticketTypeRequests);
 
-    // check total tickets in requests are not greater than 20
+    // check total tickets in requests are not greater than MAX_TICKETS
     if (numTickets > MAX_TICKETS) {
       throw new InvalidPurchaseException(
         `Must not have more than ${MAX_TICKETS} tickets`
@@ -54,15 +54,15 @@ export default class TicketService {
     };
   }
 
-  #processTickets(tickets) {
+  #processTicketRequests(ticketRequests) {
     let numTickets = 0;
     let numSeats = 0;
     let totalCost = 0;
 
-    tickets.forEach((ticket) => {
-      numTickets += ticket.getNoOfTickets();
-      numSeats += ticket.getSeats();
-      totalCost += ticket.getCost();
+    ticketRequests.forEach((request) => {
+      numTickets += request.getNoOfTickets();
+      numSeats += request.getSeats();
+      totalCost += request.getCost();
     });
 
     return { numTickets, numSeats, totalCost };
