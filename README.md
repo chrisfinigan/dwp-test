@@ -5,6 +5,11 @@
 # Prerequisites
 - Node 16
 - Copy .env.example to .env and edit accordingly
+- Nodemon installed globally 
+```
+npm install -g nodemon
+```
+
 
 # Usage
 
