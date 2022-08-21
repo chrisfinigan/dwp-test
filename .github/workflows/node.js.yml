@@ -26,8 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: './cinema-tickets-javascript/package-lock.json'
+        cache-dependency-path: './package-lock.json'
     - run: npm install
-      working-directory: './cinema-tickets-javascript'
+      working-directory: './'
     - run: npm test
-      working-directory: './cinema-tickets-javascript'
+      working-directory: './'

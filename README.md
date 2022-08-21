@@ -26,7 +26,7 @@ npm run server
 
 ### Curl POST
 
-With server running can use following curl command or postman collection
+With server running can use following curl command
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"accountId":1,"adults":1,"children":1, "infants":1}' http://localhost:4000/api/tickets/purchase
@@ -45,7 +45,7 @@ import TicketService from './pairtest/services/TicketService.js';
 let ticketService = new TicketService();
 
 try {
-  ticketService.purchaseTickets(1, new TicketTypeRequest('ADULT', 0));
+  ticketService.purchaseTickets(123456, new TicketTypeRequest('ADULT', 1));
 } catch (err) {
   console.log(err);
 }
