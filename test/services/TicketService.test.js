@@ -92,7 +92,7 @@ describe('TicketService Seat Numbers', () => {
     expect(numSeats).to.equal(2);
   });
 
-  it('should return 2 seats for 1 adult 1 child 1 infant', () => {
+  it('should return 3 seats for 1 adult 2 child 1 infant', () => {
     const { numSeats } = ticketService.purchaseTickets(
       1,
       new TicketTypeRequest('ADULT', 1),
