@@ -1,5 +1,7 @@
 # DWP Test
 
+![Node.js CI](https://github.com/chrisfinigan/dwp-test/actions/workflows/node.js.yml/badge.svg)
+
 # Prerequisites
 - Node 16
 - Copy .env.example to .env and edit accordingly
