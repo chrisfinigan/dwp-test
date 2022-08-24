@@ -1,6 +1,5 @@
-import chai from 'chai';
+import chai, { expect } from 'chai';
 import InvalidPurchaseException from '../../src/pairtest/lib/InvalidPurchaseException.js';
-const { expect } = chai;
 
 import TicketTypeRequest from '../../src/pairtest/lib/TicketTypeRequest.js';
 import TicketService from '../../src/pairtest/services/TicketService.js';
