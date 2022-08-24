@@ -7,13 +7,10 @@ const app = express();
 
 app.use(express.json());
 
-app.use((req, res, next) => {
-  console.log(req.method, req.path, req.body);
-  next();
-});
-
 app.use('/api/tickets', ticketsRoutes);
 
 app.listen(port, () => {
   console.log('listening for requests on port', port);
 });
+
+export default app;

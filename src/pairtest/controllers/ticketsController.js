@@ -1,9 +1,28 @@
 import TicketTypeRequest from '../lib/TicketTypeRequest.js';
 import TicketService from '../services/TicketService.js';
+import Joi from 'joi';
+
+const schema = Joi.object({
+  accountId: Joi.number().required(),
+  adults: Joi.number(),
+  children: Joi.number(),
+  infants: Joi.number(),
+});
 
 class TicketsController {
   static purchase(req, res) {
     const { accountId, adults, children, infants } = req.body;
+    const { error } = schema.validate({
+      accountId,
+      adults,
+      children,
+      infants,
+    });
+
+    if (error) {
+      return res.status(400).json({ message: 'validation error ' + error });
+    }
+
     const tickets = new TicketService();
     try {
       const { totalCost, numSeats, numTickets } = tickets.purchaseTickets(
