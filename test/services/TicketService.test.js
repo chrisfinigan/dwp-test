@@ -11,7 +11,7 @@ describe('TicketService Errors', () => {
   it('should throw for invalid ticket type', () => {
     expect(() => {
       ticketService.purchaseTickets('1', new TicketTypeRequest('TEST', 1));
-    }).to.throw(TypeError);
+    }).to.throw(TypeError, 'type must be ADULT, CHILD or INFANT');
   });
 
   it('should throw for invalid ticket number', () => {
@@ -117,9 +117,10 @@ describe('TicketService Ticket Numbers', () => {
   it('should return 2 tickets for 1 adult 1 infant', () => {
     const { numTickets } = ticketService.purchaseTickets(
       1,
-      new TicketTypeRequest('ADULT', 1)
+      new TicketTypeRequest('ADULT', 1),
+      new TicketTypeRequest('INFANT', 1)
     );
-    expect(numTickets).to.equal(1);
+    expect(numTickets).to.equal(2);
   });
 
   it('should return 2 tickets for 1 adult 1 child', () => {
@@ -169,7 +170,7 @@ describe('TicketService Total Cost', () => {
     );
     expect(totalCost).to.equal(30);
   });
-  it('should return 30 for 1 adult 1 infant', () => {
+  it('should return 20 for 1 adult 1 infant', () => {
     const { totalCost } = ticketService.purchaseTickets(
       1,
       new TicketTypeRequest('ADULT', 1),

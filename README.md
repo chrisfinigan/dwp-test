@@ -45,6 +45,9 @@ curl -X POST -H "Content-Type: application/json" -d '{"accountId":1,"adults":1,"
 ```
 
 ## Import service
+
+The ticket service can be imported and used as shown in the example below, where 1 Adult ticket for account 123456 is purchased
+
 ```js
 import TicketTypeRequest from './pairtest/lib/TicketTypeRequest.js';
 import TicketService from './pairtest/services/TicketService.js';

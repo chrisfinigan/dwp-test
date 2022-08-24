@@ -2,10 +2,6 @@
  * Immutable Object.
  */
 
-const ADULT = 'ADULT';
-const CHILD = 'CHILD';
-const INFANT = 'INFANT';
-
 export default class TicketTypeRequest {
   #type;
   #noOfTickets;
@@ -13,12 +9,8 @@ export default class TicketTypeRequest {
   #seats;
 
   constructor(type = '', noOfTickets = 0) {
-    if (!this.#Type.includes(type)) {
-      throw new TypeError(
-        `type must be ${this.#Type
-          .slice(0, -1)
-          .join(', ')}, or ${this.#Type.slice(-1)}`
-      );
+    if (!this.#Data[type]) {
+      throw new TypeError(`type must be ADULT, CHILD or INFANT`);
     }
 
     if (!Number.isInteger(noOfTickets)) {
@@ -32,7 +24,7 @@ export default class TicketTypeRequest {
   }
 
   isAdult() {
-    return this.#type === ADULT;
+    return this.#type === 'ADULT';
   }
 
   getNoOfTickets() {
@@ -51,7 +43,6 @@ export default class TicketTypeRequest {
     return this.#seats;
   }
 
-  #Type = [ADULT, CHILD, INFANT];
   #Data = {
     ADULT: { Cost: 20, Seat: 1 },
     CHILD: { Cost: 10, Seat: 1 },
